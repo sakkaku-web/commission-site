@@ -33,6 +33,9 @@
     "art-commision-e2e": {
       "tags": [],
       "implicitDependencies": ["art-commision"]
+    },
+    "landing-page": {
+      "tags": []
     }
   }
 }
