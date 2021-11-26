@@ -4,7 +4,7 @@ import { LandingPage } from '@commission-site/landing-page';
 
 export function App() {
   return (
-    <div className="app">
+    <div className="bg-gray-50">
       <LandingPage />
     </div>
   );
