@@ -79,33 +79,6 @@
         }
       }
     },
-    "art-commision-e2e": {
-      "root": "apps/art-commision-e2e",
-      "sourceRoot": "apps/art-commision-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/art-commision-e2e/cypress.json",
-            "devServerTarget": "art-commision:serve",
-            "tsConfig": "apps/art-commision-e2e/tsconfig.json"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "art-commision:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/art-commision-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
     "landing-page": {
       "root": "libs/landing-page",
       "sourceRoot": "libs/landing-page/src",
