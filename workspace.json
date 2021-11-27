@@ -18,7 +18,8 @@
             "tsConfig": "apps/art-commission/tsconfig.app.json",
             "assets": [
               "apps/art-commission/src/favicon.ico",
-              "apps/art-commission/src/assets"
+              "apps/art-commission/src/assets",
+              "apps/art-commission/src/404.html"
             ],
             "styles": ["apps/art-commission/src/styles.scss"],
             "scripts": [],
