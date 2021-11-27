@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
 /***/ "../../../libs/landing-page/src/index.ts":
-/*!**************************************************************************************!*\
-  !*** /home/runner/work/commision-site/commision-site/libs/landing-page/src/index.ts ***!
-  \**************************************************************************************/
+/*!****************************************************************************************!*\
+  !*** /home/runner/work/commission-site/commission-site/libs/landing-page/src/index.ts ***!
+  \****************************************************************************************/
 /*! exports provided: LandingPage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -17,9 +17,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ "../../../libs/landing-page/src/lib/landing-page.module.scss":
-/*!**********************************************************************************************************!*\
-  !*** /home/runner/work/commision-site/commision-site/libs/landing-page/src/lib/landing-page.module.scss ***!
-  \**********************************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** /home/runner/work/commission-site/commission-site/libs/landing-page/src/lib/landing-page.module.scss ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44,9 +44,9 @@ if (content.locals) {
 /***/ }),
 
 /***/ "../../../libs/landing-page/src/lib/landing-page.tsx":
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/commision-site/commision-site/libs/landing-page/src/lib/landing-page.tsx ***!
-  \**************************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** /home/runner/work/commission-site/commission-site/libs/landing-page/src/lib/landing-page.tsx ***!
+  \****************************************************************************************************/
 /*! exports provided: LandingPage, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -59,7 +59,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-i18next */ "../../../node_modules/react-i18next/dist/es/index.js");
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-dev-runtime */ "../../../node_modules/react/jsx-dev-runtime.js");
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__);
-var _jsxFileName = "/home/runner/work/commision-site/commision-site/libs/landing-page/src/lib/landing-page.tsx";
+var _jsxFileName = "/home/runner/work/commission-site/commission-site/libs/landing-page/src/lib/landing-page.tsx";
 
 
 
@@ -96,9 +96,9 @@ function LandingPage(props) {
 /***/ }),
 
 /***/ "../../../node_modules/css-loader/dist/cjs.js?!../../../node_modules/postcss-loader/dist/cjs.js?!../../../node_modules/sass-loader/dist/cjs.js?!../../../libs/landing-page/src/lib/landing-page.module.scss":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** /home/runner/work/commision-site/commision-site/node_modules/css-loader/dist/cjs.js??ref--5-oneOf-1-1!/home/runner/work/commision-site/commision-site/node_modules/postcss-loader/dist/cjs.js??ref--5-oneOf-1-2!/home/runner/work/commision-site/commision-site/node_modules/sass-loader/dist/cjs.js??ref--5-oneOf-1-3!/home/runner/work/commision-site/commision-site/libs/landing-page/src/lib/landing-page.module.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** /home/runner/work/commission-site/commission-site/node_modules/css-loader/dist/cjs.js??ref--5-oneOf-1-1!/home/runner/work/commission-site/commission-site/node_modules/postcss-loader/dist/cjs.js??ref--5-oneOf-1-2!/home/runner/work/commission-site/commission-site/node_modules/sass-loader/dist/cjs.js??ref--5-oneOf-1-3!/home/runner/work/commission-site/commission-site/libs/landing-page/src/lib/landing-page.module.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -114,9 +114,9 @@ module.exports = exports;
 /***/ }),
 
 /***/ "../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
-/*!**************************************************************************************************************************!*\
-  !*** /home/runner/work/commision-site/commision-site/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
-  \**************************************************************************************************************************/
+/*!****************************************************************************************************************************!*\
+  !*** /home/runner/work/commission-site/commission-site/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -419,7 +419,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _commission_site_landing_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @commission-site/landing-page */ "../../../libs/landing-page/src/index.ts");
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-dev-runtime */ "../../../node_modules/react/jsx-dev-runtime.js");
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/home/runner/work/commision-site/commision-site/apps/art-commission/src/app/app.tsx";
+var _jsxFileName = "/home/runner/work/commission-site/commission-site/apps/art-commission/src/app/app.tsx";
 
 
 function App() {
@@ -497,7 +497,7 @@ var _i18n_jp_common_json__WEBPACK_IMPORTED_MODULE_6___namespace = /*#__PURE__*/_
 /* harmony import */ var _app_app__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app/app */ "./app/app.tsx");
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-dev-runtime */ "../../../node_modules/react/jsx-dev-runtime.js");
 /* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_8__);
-var _jsxFileName = "/home/runner/work/commision-site/commision-site/apps/art-commission/src/main.tsx";
+var _jsxFileName = "/home/runner/work/commission-site/commission-site/apps/art-commission/src/main.tsx";
 
 
 
@@ -554,7 +554,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_2__["render"]( /*#__PURE__*/Object(react_jsx_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/runner/work/commision-site/commision-site/apps/art-commission/src/main.tsx */"./main.tsx");
+module.exports = __webpack_require__(/*! /home/runner/work/commission-site/commission-site/apps/art-commission/src/main.tsx */"./main.tsx");
 
 
 /***/ })
