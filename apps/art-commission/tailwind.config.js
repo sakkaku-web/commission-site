@@ -1,4 +1,4 @@
-const {join} = require('path');
+const { join } = require('path');
 const { createGlobPatternsForDependencies } = require('@nrwl/next/tailwind');
 
 module.exports = {
@@ -15,4 +15,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};

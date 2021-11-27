@@ -1,26 +1,26 @@
 {
   "version": 2,
   "projects": {
-    "art-commision": {
-      "root": "apps/art-commision",
-      "sourceRoot": "apps/art-commision/src",
+    "art-commission": {
+      "root": "apps/art-commission",
+      "sourceRoot": "apps/art-commission/src",
       "projectType": "application",
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/art-commision",
-            "index": "apps/art-commision/src/index.html",
+            "outputPath": "dist/apps/art-commission",
+            "index": "apps/art-commission/src/index.html",
             "baseHref": "/",
-            "main": "apps/art-commision/src/main.tsx",
-            "polyfills": "apps/art-commision/src/polyfills.ts",
-            "tsConfig": "apps/art-commision/tsconfig.app.json",
+            "main": "apps/art-commission/src/main.tsx",
+            "polyfills": "apps/art-commission/src/polyfills.ts",
+            "tsConfig": "apps/art-commission/tsconfig.app.json",
             "assets": [
-              "apps/art-commision/src/favicon.ico",
-              "apps/art-commision/src/assets"
+              "apps/art-commission/src/favicon.ico",
+              "apps/art-commission/src/assets"
             ],
-            "styles": ["apps/art-commision/src/styles.scss"],
+            "styles": ["apps/art-commission/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -28,8 +28,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/art-commision/src/environments/environment.ts",
-                  "with": "apps/art-commision/src/environments/environment.prod.ts"
+                  "replace": "apps/art-commission/src/environments/environment.ts",
+                  "with": "apps/art-commission/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -52,12 +52,12 @@
         "serve": {
           "executor": "@nrwl/web:dev-server",
           "options": {
-            "buildTarget": "art-commision:build",
+            "buildTarget": "art-commission:build",
             "hmr": true
           },
           "configurations": {
             "production": {
-              "buildTarget": "art-commision:build:production",
+              "buildTarget": "art-commission:build:production",
               "hmr": false
             }
           }
@@ -66,14 +66,14 @@
           "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/art-commision/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": ["apps/art-commission/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/art-commision"],
+          "outputs": ["coverage/apps/art-commission"],
           "options": {
-            "jestConfig": "apps/art-commision/jest.config.js",
+            "jestConfig": "apps/art-commission/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -121,5 +121,5 @@
       }
     }
   },
-  "defaultProject": "art-commision"
+  "defaultProject": "art-commission"
 }
