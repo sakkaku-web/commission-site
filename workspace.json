@@ -81,6 +81,103 @@
         }
       }
     },
+    "commission-contact": {
+      "root": "libs/commission-contact",
+      "sourceRoot": "libs/commission-contact/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/commission-contact/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/commission-contact"],
+          "options": {
+            "jestConfig": "libs/commission-contact/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "package": {
+          "executor": "@myin/aws-cdk:package",
+          "options": {
+            "entryFile": "libs/commission-contact/src/index.ts",
+            "tsConfig": "libs/commission-contact/tsconfig.lib.json",
+            "outputPath": "dist/libs/commission-contact"
+          }
+        }
+      }
+    },
+    "contact-cloud": {
+      "projectType": "application",
+      "root": "apps/contact-cloud",
+      "sourceRoot": "apps/contact-cloud/src",
+      "targets": {
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/contact-cloud",
+            "commands": [
+              {
+                "command": "if [ \"{args.stack}\" = \"undefined\" ]; then cdk deploy --require-approval=never; else cdk deploy --require-approval=never {args.stack}; fi"
+              }
+            ]
+          }
+        },
+        "destroy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/contact-cloud",
+            "commands": [
+              {
+                "command": "if [ \"{args.stack}\" = \"undefined\" ]; then cdk destroy -f; else cdk destroy -f {args.stack}; fi"
+              }
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/contact-cloud"],
+          "options": {
+            "jestConfig": "apps/contact-cloud/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "discord-sub": {
+      "root": "libs/discord-sub",
+      "sourceRoot": "libs/discord-sub/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/discord-sub/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/discord-sub"],
+          "options": {
+            "jestConfig": "libs/discord-sub/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "package": {
+          "executor": "@myin/aws-cdk:package",
+          "options": {
+            "entryFile": "libs/discord-sub/src/index.ts",
+            "tsConfig": "libs/discord-sub/tsconfig.lib.json",
+            "outputPath": "dist/libs/discord-sub"
+          }
+        }
+      }
+    },
     "landing-page": {
       "root": "libs/landing-page",
       "sourceRoot": "libs/landing-page/src",

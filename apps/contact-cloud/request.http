@@ -1,0 +1,4 @@
+POST https://y26u539l80.execute-api.eu-central-1.amazonaws.com/contact
+Content-Type: application/json
+
+{"message": "Hello World"}
