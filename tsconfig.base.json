@@ -18,8 +18,7 @@
       "@commission-site/commission-contact": [
         "libs/commission-contact/src/index.ts"
       ],
-      "@commission-site/discord-sub": ["libs/discord-sub/src/index.ts"],
-      "@commission-site/landing-page": ["libs/landing-page/src/index.ts"]
+      "@commission-site/discord-sub": ["libs/discord-sub/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

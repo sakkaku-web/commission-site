@@ -177,28 +177,6 @@
           }
         }
       }
-    },
-    "landing-page": {
-      "root": "libs/landing-page",
-      "sourceRoot": "libs/landing-page/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/landing-page/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/landing-page"],
-          "options": {
-            "jestConfig": "libs/landing-page/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
     }
   },
   "cli": {
