@@ -133,6 +133,28 @@
         }
       }
     },
+    "commission-shared": {
+      "root": "libs/commission-shared",
+      "sourceRoot": "libs/commission-shared/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/commission-shared/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/commission-shared"],
+          "options": {
+            "jestConfig": "libs/commission-shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "contact-cloud": {
       "projectType": "application",
       "root": "apps/contact-cloud",

@@ -21,6 +21,9 @@
       "@commission-site/commission-contact": [
         "libs/commission-contact/src/index.ts"
       ],
+      "@commission-site/commission-shared": [
+        "libs/commission-shared/src/index.ts"
+      ],
       "@commission-site/discord-sub": ["libs/discord-sub/src/index.ts"]
     }
   },
