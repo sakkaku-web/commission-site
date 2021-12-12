@@ -23,6 +23,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [sending, setSending] = useState(false);
   const [status, setStatus] = useState<ContactStatus | null>(null);
 
   const getStatusMessage = (status: ContactStatus | null) => {
@@ -46,6 +47,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
     event.preventDefault();
 
     if (onSubmit) {
+      setSending(true);
       try {
         await onSubmit({
           email,
@@ -57,6 +59,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
       } catch (e) {
         setStatus(ContactStatus.ERROR);
       }
+      setSending(false);
     }
   };
 
@@ -67,6 +70,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <input
           id="contact-name"
           type="text"
+          disabled={sending}
           value={name}
           required
           onChange={(e) => setName(e.target.value)}
@@ -78,6 +82,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <input
           id="contact-email"
           type="text"
+          disabled={sending}
           value={email}
           required
           onChange={(e) => setEmail(e.target.value)}
@@ -89,6 +94,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <textarea
           id="contact-message"
           className="resize-none"
+          disabled={sending}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={5}
@@ -96,12 +102,15 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
       </div>
 
       <div className="form-row">
-        <div>
-          <button type="submit">{t('button.submit')}</button>
+        <div className="flex flex-row">
+          <button type="submit" disabled={sending}>
+            {t('button.submit')}
+          </button>
+          {statusMessage && (
+            <span className="status-message">{statusMessage}</span>
+          )}
         </div>
       </div>
-
-      {statusMessage && <div className="form-row">{statusMessage}</div>}
     </form>
   );
 }
