@@ -33,7 +33,13 @@ export const handler = async ({
 
   const contact = JSON.parse(body) as CommissionContact;
 
-  if (!contact.name || !contact.email) {
+  if (
+    !contact.name ||
+    !contact.email ||
+    contact.name?.length > 100 ||
+    contact.email?.length > 100 ||
+    contact.message?.length > 1000
+  ) {
     return error('Validation failed', 400);
   }
 

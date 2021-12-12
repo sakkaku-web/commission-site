@@ -18,6 +18,9 @@ export interface ContactFormProps {
 }
 
 export function ContactForm({ onSubmit }: ContactFormProps) {
+  const maxLength = 100;
+  const maxMessageLength = 1000;
+
   const { t } = useTranslation();
 
   const [name, setName] = useState('');
@@ -74,6 +77,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           disabled={sending}
           value={name}
           required
+          maxLength={maxLength}
           onChange={(e) => setName(e.target.value)}
         />
       </div>
@@ -86,6 +90,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           disabled={sending}
           value={email}
           required
+          maxLength={maxLength}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
@@ -99,7 +104,11 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={5}
+          maxLength={maxMessageLength}
         />
+        <span className="note">
+          {message.length}/{maxMessageLength}
+        </span>
       </div>
 
       <div className="form-row">

@@ -52,3 +52,8 @@ button {
   @apply justify-center;
   @apply p-1;
 }
+
+.note {
+  @apply text-gray-400;
+  @apply text-sm;
+}
