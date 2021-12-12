@@ -63,6 +63,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
     }
   };
 
+  // TODO: add validation
   return (
     <form className="form" onSubmit={(e) => submit(e)}>
       <div className="form-row">

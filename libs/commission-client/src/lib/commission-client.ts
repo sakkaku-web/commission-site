@@ -1,4 +1,5 @@
 import { CommissionContact } from '@commission-site/commission-shared';
+
 export class CommissionClient {
   constructor(private baseUrl: string) {}
 
