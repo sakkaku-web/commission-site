@@ -19,3 +19,29 @@ h1 {
   @apply text-5xl;
   @apply my-2;
 }
+
+input, textarea {
+  @apply border-solid;
+  @apply border;
+  @apply border-gray-300;
+  @apply p-1;
+}
+
+button {
+  @apply border-solid;
+  @apply border;
+  @apply border-gray-300;
+  @apply bg-white;
+  @apply p-1;
+}
+
+.form-row {
+  @apply flex;
+  @apply flex-col;
+  @apply p-1;
+}
+
+.form {
+  @apply flex;
+  @apply flex-col;
+}
