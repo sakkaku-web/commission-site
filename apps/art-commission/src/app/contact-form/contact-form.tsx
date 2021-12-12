@@ -102,15 +102,14 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
       </div>
 
       <div className="form-row">
-        <div className="flex flex-row">
+        <div>
           <button type="submit" disabled={sending}>
             {t('button.submit')}
           </button>
-          {statusMessage && (
-            <span className="status-message">{statusMessage}</span>
-          )}
         </div>
       </div>
+
+      {statusMessage && <span className="status-message">{statusMessage}</span>}
     </form>
   );
 }
