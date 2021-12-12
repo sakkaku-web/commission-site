@@ -81,6 +81,28 @@
         }
       }
     },
+    "commission-client": {
+      "root": "libs/commission-client",
+      "sourceRoot": "libs/commission-client/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/commission-client/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/commission-client"],
+          "options": {
+            "jestConfig": "libs/commission-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "commission-contact": {
       "root": "libs/commission-contact",
       "sourceRoot": "libs/commission-contact/src",

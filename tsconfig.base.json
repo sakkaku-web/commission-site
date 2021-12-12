@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@commission-site/commission-client": [
+        "libs/commission-client/src/index.ts"
+      ],
       "@commission-site/commission-contact": [
         "libs/commission-contact/src/index.ts"
       ],

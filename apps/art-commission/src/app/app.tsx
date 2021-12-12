@@ -1,8 +1,16 @@
 import { useTranslation } from 'react-i18next';
-import ContactForm from './contact-form/contact-form';
+import ContactForm, { ContactFormValue } from './contact-form/contact-form';
+import { CommissionClient } from '@commission-site/commission-client';
+import { environment } from '../environments/environment';
+
+const client = new CommissionClient(environment.commisionApi);
 
 export function App() {
   const { t } = useTranslation();
+
+  const sendContact = (contact: ContactFormValue) => {
+    client.sendContactMessage(contact);
+  };
 
   return (
     <div id="wrapper">
@@ -16,7 +24,7 @@ export function App() {
         <p>{t('landing.description')}</p>
       </div>
 
-      <ContactForm />
+      <ContactForm onSubmit={sendContact} />
     </div>
   );
 }
