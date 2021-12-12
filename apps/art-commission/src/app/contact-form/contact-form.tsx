@@ -8,8 +8,13 @@ export interface ContactFormValue {
   message?: string;
 }
 
+export enum ContactStatus {
+  SENT,
+  ERROR,
+}
+
 export interface ContactFormProps {
-  onSubmit?: (value: ContactFormValue) => void;
+  onSubmit?: (value: ContactFormValue) => Promise<void>;
 }
 
 export function ContactForm({ onSubmit }: ContactFormProps) {
@@ -18,16 +23,40 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<ContactStatus | null>(null);
 
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const getStatusMessage = (status: ContactStatus | null) => {
+    if (status == null) return '';
+
+    if (status === ContactStatus.SENT) {
+      return t('contact.status.sent');
+    }
+
+    return t('contact.status.error');
+  };
+  const statusMessage = getStatusMessage(status);
+
+  const resetForm = () => {
+    setName('');
+    setEmail('');
+    setMessage('');
+  };
+
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (onSubmit) {
-      onSubmit({
-        email,
-        name,
-        message,
-      });
+      try {
+        await onSubmit({
+          email,
+          name,
+          message,
+        });
+        setStatus(ContactStatus.SENT);
+        resetForm();
+      } catch (e) {
+        setStatus(ContactStatus.ERROR);
+      }
     }
   };
 
@@ -71,6 +100,8 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           <button type="submit">{t('button.submit')}</button>
         </div>
       </div>
+
+      {statusMessage && <div className="form-row">{statusMessage}</div>}
     </form>
   );
 }
