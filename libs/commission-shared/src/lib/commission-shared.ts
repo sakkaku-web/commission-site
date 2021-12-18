@@ -3,3 +3,8 @@ export interface CommissionContact {
   email: string;
   message?: string;
 }
+
+export const commissionTable = 'CommissionTable';
+export const commissionTableKey = 'id';
+
+export const commissionMetaColumn = '@commissionMeta';

@@ -42,6 +42,9 @@
     "lambda-commission-contact": {
       "tags": []
     },
+    "lambda-commission-meta": {
+      "tags": []
+    },
     "lambda-discord-sub": {
       "tags": []
     }
