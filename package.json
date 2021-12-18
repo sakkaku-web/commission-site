@@ -7,7 +7,7 @@
     "build": "nx build --prod",
     "test": "nx test",
     "build:aws": "nx run-many --target=package --all",
-    "deploy:aws": "npm run build:aws && nx run contact-cloud:deploy"
+    "deploy:aws": "npm run build:aws && nx run commission-cloud:deploy"
   },
   "private": true,
   "dependencies": {

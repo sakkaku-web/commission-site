@@ -33,10 +33,10 @@
     "commission-client": {
       "tags": []
     },
-    "commission-shared": {
+    "commission-cloud": {
       "tags": []
     },
-    "contact-cloud": {
+    "commission-shared": {
       "tags": []
     },
     "lambda-commission-contact": {

@@ -8,9 +8,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/art-commission",
             "index": "apps/art-commission/src/index.html",
@@ -23,9 +21,7 @@
               "apps/art-commission/src/assets",
               "apps/art-commission/src/404.html"
             ],
-            "styles": [
-              "apps/art-commission/src/styles.scss"
-            ],
+            "styles": ["apps/art-commission/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -70,20 +66,14 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/art-commission/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/art-commission/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/art-commission"
-          ],
+          "outputs": ["coverage/apps/art-commission"],
           "options": {
             "jestConfig": "apps/art-commission/jest.config.js",
             "passWithNoTests": true
@@ -98,22 +88,53 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/commission-client/**/*.ts"
+            "lintFilePatterns": ["libs/commission-client/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/commission-client"],
+          "options": {
+            "jestConfig": "libs/commission-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "commission-cloud": {
+      "projectType": "application",
+      "root": "apps/commission-cloud",
+      "sourceRoot": "apps/commission-cloud/src",
+      "targets": {
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/commission-cloud",
+            "commands": [
+              {
+                "command": "if [ \"{args.stack}\" = \"undefined\" ]; then cdk deploy --require-approval=never; else cdk deploy --require-approval=never {args.stack}; fi"
+              }
+            ]
+          }
+        },
+        "destroy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/commission-cloud",
+            "commands": [
+              {
+                "command": "if [ \"{args.stack}\" = \"undefined\" ]; then cdk destroy -f; else cdk destroy -f {args.stack}; fi"
+              }
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/commission-client"
-          ],
+          "outputs": ["coverage/apps/commission-cloud"],
           "options": {
-            "jestConfig": "libs/commission-client/jest.config.js",
+            "jestConfig": "apps/commission-cloud/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -126,61 +147,16 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/commission-shared/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/commission-shared/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/commission-shared"
-          ],
+          "outputs": ["coverage/libs/commission-shared"],
           "options": {
             "jestConfig": "libs/commission-shared/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "contact-cloud": {
-      "projectType": "application",
-      "root": "apps/contact-cloud",
-      "sourceRoot": "apps/contact-cloud/src",
-      "targets": {
-        "deploy": {
-          "executor": "@nrwl/workspace:run-commands",
-          "options": {
-            "cwd": "apps/contact-cloud",
-            "commands": [
-              {
-                "command": "if [ \"{args.stack}\" = \"undefined\" ]; then cdk deploy --require-approval=never; else cdk deploy --require-approval=never {args.stack}; fi"
-              }
-            ]
-          }
-        },
-        "destroy": {
-          "executor": "@nrwl/workspace:run-commands",
-          "options": {
-            "cwd": "apps/contact-cloud",
-            "commands": [
-              {
-                "command": "if [ \"{args.stack}\" = \"undefined\" ]; then cdk destroy -f; else cdk destroy -f {args.stack}; fi"
-              }
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/contact-cloud"
-          ],
-          "options": {
-            "jestConfig": "apps/contact-cloud/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -193,20 +169,14 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/lambda/commission-contact/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/lambda/commission-contact/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/lambda/commission-contact"
-          ],
+          "outputs": ["coverage/libs/lambda/commission-contact"],
           "options": {
             "jestConfig": "libs/lambda/commission-contact/jest.config.js",
             "passWithNoTests": true
@@ -229,20 +199,14 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/lambda/commission-meta/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/lambda/commission-meta/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/lambda/commission-meta"
-          ],
+          "outputs": ["coverage/libs/lambda/commission-meta"],
           "options": {
             "jestConfig": "libs/lambda/commission-meta/jest.config.js",
             "passWithNoTests": true
@@ -265,20 +229,14 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/lambda/discord-sub/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/lambda/discord-sub/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/lambda/discord-sub"
-          ],
+          "outputs": ["coverage/libs/lambda/discord-sub"],
           "options": {
             "jestConfig": "libs/lambda/discord-sub/jest.config.js",
             "passWithNoTests": true

@@ -17,23 +17,23 @@ export function setupManagementFunctions(scope: Construct, libsPath: string) {
     },
   });
 
-  const getCommisionMetaFunction = new Function(scope, 'getCommissionMeta', {
+  const getCommissionMetaFunction = new Function(scope, 'getCommissionMeta', {
     runtime: Runtime.NODEJS_14_X,
     code: Code.fromAsset(join(libsPath, 'commission-meta')),
     handler: 'commission-meta.getHandler',
     logRetention: RetentionDays.ONE_MONTH,
   });
 
-  table.grantReadData(getCommisionMetaFunction);
+  table.grantReadData(getCommissionMetaFunction);
 
-  const postCommisionMetaFunction = new Function(scope, 'postCommissionMeta', {
+  const postCommissionMetaFunction = new Function(scope, 'postCommissionMeta', {
     runtime: Runtime.NODEJS_14_X,
     code: Code.fromAsset(join(libsPath, 'commission-meta')),
     handler: 'commission-meta.postHandler',
     logRetention: RetentionDays.ONE_MONTH,
   });
 
-  table.grantWriteData(postCommisionMetaFunction);
+  table.grantWriteData(postCommissionMetaFunction);
 
-  return { getCommisionMetaFunction, postCommisionMetaFunction };
+  return { getCommissionMetaFunction, postCommissionMetaFunction };
 }
