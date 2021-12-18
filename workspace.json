@@ -103,36 +103,6 @@
         }
       }
     },
-    "commission-contact": {
-      "root": "libs/commission-contact",
-      "sourceRoot": "libs/commission-contact/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/commission-contact/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/commission-contact"],
-          "options": {
-            "jestConfig": "libs/commission-contact/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "package": {
-          "executor": "@myin/aws-cdk:package",
-          "options": {
-            "entryFile": "libs/commission-contact/src/index.ts",
-            "tsConfig": "libs/commission-contact/tsconfig.lib.json",
-            "outputPath": "dist/libs/commission-contact"
-          }
-        }
-      }
-    },
     "commission-shared": {
       "root": "libs/commission-shared",
       "sourceRoot": "libs/commission-shared/src",
@@ -192,32 +162,62 @@
         }
       }
     },
-    "discord-sub": {
-      "root": "libs/discord-sub",
-      "sourceRoot": "libs/discord-sub/src",
+    "lambda-commission-contact": {
+      "root": "libs/lambda/commission-contact",
+      "sourceRoot": "libs/lambda/commission-contact/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["libs/discord-sub/**/*.ts"]
+            "lintFilePatterns": ["libs/lambda/commission-contact/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/discord-sub"],
+          "outputs": ["coverage/libs/lambda/commission-contact"],
           "options": {
-            "jestConfig": "libs/discord-sub/jest.config.js",
+            "jestConfig": "libs/lambda/commission-contact/jest.config.js",
             "passWithNoTests": true
           }
         },
         "package": {
           "executor": "@myin/aws-cdk:package",
           "options": {
-            "entryFile": "libs/discord-sub/src/index.ts",
-            "tsConfig": "libs/discord-sub/tsconfig.lib.json",
-            "outputPath": "dist/libs/discord-sub"
+            "entryFile": "libs/lambda/commission-contact/src/index.ts",
+            "tsConfig": "libs/lambda/commission-contact/tsconfig.lib.json",
+            "outputPath": "dist/libs/lambda/commission-contact"
+          }
+        }
+      }
+    },
+    "lambda-discord-sub": {
+      "root": "libs/lambda/discord-sub",
+      "sourceRoot": "libs/lambda/discord-sub/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/lambda/discord-sub/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/lambda/discord-sub"],
+          "options": {
+            "jestConfig": "libs/lambda/discord-sub/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "package": {
+          "executor": "@myin/aws-cdk:package",
+          "options": {
+            "entryFile": "libs/lambda/discord-sub/src/index.ts",
+            "tsConfig": "libs/lambda/discord-sub/tsconfig.lib.json",
+            "outputPath": "dist/libs/lambda/discord-sub"
           }
         }
       }

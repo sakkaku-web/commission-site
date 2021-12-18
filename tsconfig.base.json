@@ -18,13 +18,15 @@
       "@commission-site/commission-client": [
         "libs/commission-client/src/index.ts"
       ],
-      "@commission-site/commission-contact": [
-        "libs/commission-contact/src/index.ts"
-      ],
       "@commission-site/commission-shared": [
         "libs/commission-shared/src/index.ts"
       ],
-      "@commission-site/discord-sub": ["libs/discord-sub/src/index.ts"]
+      "@commission-site/lambda-commission-contact": [
+        "libs/lambda/commission-contact/src/index.ts"
+      ],
+      "@commission-site/lambda-discord-sub": [
+        "libs/lambda/discord-sub/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

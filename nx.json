@@ -33,16 +33,16 @@
     "commission-client": {
       "tags": []
     },
-    "commission-contact": {
-      "tags": []
-    },
     "commission-shared": {
       "tags": []
     },
     "contact-cloud": {
       "tags": []
     },
-    "discord-sub": {
+    "lambda-commission-contact": {
+      "tags": []
+    },
+    "lambda-discord-sub": {
       "tags": []
     }
   }

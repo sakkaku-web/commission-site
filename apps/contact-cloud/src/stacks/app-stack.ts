@@ -14,7 +14,7 @@ export class AppStack extends Stack {
       },
     });
 
-    const { contactFunction } = setupContactNotification(this, '../../dist');
+    const { contactFunction } = setupContactNotification(this, '../../dist/lambda');
 
     api.addRoutes({
       path: '/contact',
