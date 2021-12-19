@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import ContactForm, { ContactFormValue } from '../contact-form/contact-form';
 import './landing-page.module.scss';
 
-/* eslint-disable-next-line */
 export interface LandingPageProps {
   client: CommissionClient;
 }
