@@ -1,1 +1,1 @@
-export * from './lib/lambda-commission-meta';
+export * from './lib/commission-meta';
