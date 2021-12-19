@@ -21,7 +21,7 @@ export function setupManagementFunctions(scope: Construct, libsPath: string) {
   const getCommissionMetaFunction = new Function(scope, 'getCommissionMeta', {
     runtime: Runtime.NODEJS_14_X,
     code: Code.fromAsset(join(libsPath, 'commission-meta')),
-    handler: 'commission-meta.getHandler',
+    handler: 'lambda-commission-meta.getHandler',
     logRetention: RetentionDays.ONE_MONTH,
   });
 
@@ -30,7 +30,7 @@ export function setupManagementFunctions(scope: Construct, libsPath: string) {
   const postCommissionMetaFunction = new Function(scope, 'postCommissionMeta', {
     runtime: Runtime.NODEJS_14_X,
     code: Code.fromAsset(join(libsPath, 'commission-meta')),
-    handler: 'commission-meta.postHandler',
+    handler: 'lambda-commission-meta.postHandler',
     logRetention: RetentionDays.ONE_MONTH,
   });
 

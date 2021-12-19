@@ -10,7 +10,7 @@ export function setupContactNotification(scope: Construct, libsPath: string) {
   const contactFunction = new Function(scope, 'commissionContact', {
     runtime: Runtime.NODEJS_14_X,
     code: Code.fromAsset(join(libsPath, 'commission-contact')),
-    handler: 'commission-contact.handler',
+    handler: 'lambda-commission-contact.handler',
     logRetention: RetentionDays.ONE_MONTH,
   });
 
@@ -29,7 +29,7 @@ export function setupContactNotification(scope: Construct, libsPath: string) {
   const discordSubFunction = new Function(scope, 'discordSub', {
     runtime: Runtime.NODEJS_14_X,
     code: Code.fromAsset(join(libsPath, 'discord-sub')),
-    handler: 'discord-sub.handler',
+    handler: 'lambda-discord-sub.handler',
     logRetention: RetentionDays.ONE_MONTH,
   });
 
