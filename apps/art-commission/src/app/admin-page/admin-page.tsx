@@ -4,7 +4,7 @@ import './admin-page.module.scss';
 import { AuthService } from './auth-client';
 
 const auth = new AuthService({
-  clientId: '4bnj7dbnsiqal82efabc29j565',
+  clientId: 'osd6kdf9ur58ohmcmvk1nh2jb',
   domain: 'kumi-arts',
   tokenKey: 'kumi-arts-login-token',
 });
