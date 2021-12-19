@@ -14,7 +14,7 @@ export function setupContactNotification(scope: Construct, libsPath: string) {
     logRetention: RetentionDays.ONE_MONTH,
   });
 
-  const topic = new Topic(scope, 'artSubmission', {
+  const contactTopic = new Topic(scope, 'artSubmission', {
     displayName: 'Art Submission Contact',
     topicName: 'artSubmission',
   });
@@ -22,7 +22,7 @@ export function setupContactNotification(scope: Construct, libsPath: string) {
   const snsPublish = new PolicyStatement({
     effect: Effect.ALLOW,
     actions: ['sns:Publish'],
-    resources: [topic.topicArn],
+    resources: [contactTopic.topicArn],
   });
   contactFunction.addToRolePolicy(snsPublish);
 
@@ -40,7 +40,7 @@ export function setupContactNotification(scope: Construct, libsPath: string) {
   });
   discordSubFunction.addToRolePolicy(ssmDiscordRead);
 
-  topic.addSubscription(new LambdaSubscription(discordSubFunction));
+  contactTopic.addSubscription(new LambdaSubscription(discordSubFunction));
 
-  return { contactFunction };
+  return { contactFunction, contactTopic };
 }

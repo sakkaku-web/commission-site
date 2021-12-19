@@ -3,5 +3,5 @@
 
 export const environment = {
   production: false,
-  commisionApi: 'https://y26u539l80.execute-api.eu-central-1.amazonaws.com/',
+  commisionApi: 'https://g6lgjx7if6.execute-api.eu-central-1.amazonaws.com/',
 };

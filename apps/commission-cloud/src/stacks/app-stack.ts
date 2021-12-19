@@ -11,14 +11,22 @@ export class AppStack extends Stack {
 
     const api = new HttpApi(this, 'commissionApi', {
       corsPreflight: {
-        allowOrigins: ['*'],
-        allowMethods: [CorsHttpMethod.POST],
+        allowOrigins: [
+          'http://localhost:4200',
+          'https://sakkaku-web.github.io/commission-site/',
+        ],
+        allowHeaders: ['Authorization'],
+        allowMethods: [CorsHttpMethod.ANY],
+        allowCredentials: true,
       },
     });
 
     const lambdaFolder = '../../dist/libs/lambda';
 
-    const { contactFunction } = setupContactNotification(this, lambdaFolder);
+    const { contactFunction, contactTopic } = setupContactNotification(
+      this,
+      lambdaFolder
+    );
     api.addRoutes({
       path: '/contact',
       methods: [HttpMethod.POST],
@@ -53,8 +61,7 @@ export class AppStack extends Stack {
       authorizer,
     });
 
-    new CfnOutput(this, 'apiUrl', {
-      value: api.url,
-    });
+    new CfnOutput(this, 'apiUrl', { value: api.url });
+    new CfnOutput(this, 'contactTopic', { value: contactTopic.topicArn });
   }
 }
