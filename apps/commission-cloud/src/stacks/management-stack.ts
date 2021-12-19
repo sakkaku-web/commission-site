@@ -1,6 +1,7 @@
 import { AttributeType, Table } from '@aws-cdk/aws-dynamodb';
 import { Construct } from '@aws-cdk/core';
 import { Code, Function, Runtime } from '@aws-cdk/aws-lambda';
+import { UserPool } from '@aws-cdk/aws-cognito';
 import { RetentionDays } from '@aws-cdk/aws-logs';
 import {
   commissionTable,
@@ -35,5 +36,9 @@ export function setupManagementFunctions(scope: Construct, libsPath: string) {
 
   table.grantWriteData(postCommissionMetaFunction);
 
-  return { getCommissionMetaFunction, postCommissionMetaFunction };
+  const managementUserPool = new UserPool(scope, 'managementUserPool', {
+    userPoolName: 'managementUserPool',
+  });
+
+  return { getCommissionMetaFunction, postCommissionMetaFunction, managementUserPool };
 }

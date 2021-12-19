@@ -1,8 +1,9 @@
 import { CfnOutput, Construct, Stack, StackProps } from '@aws-cdk/core';
 import { HttpApi, HttpMethod, CorsHttpMethod } from '@aws-cdk/aws-apigatewayv2';
-import { LambdaProxyIntegration } from '@aws-cdk/aws-apigatewayv2-integrations';
+import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations';
 import { setupContactNotification } from './contact-stack';
 import { setupManagementFunctions } from './management-stack';
+import { HttpUserPoolAuthorizer } from '@aws-cdk/aws-apigatewayv2-authorizers';
 
 export class AppStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -21,19 +22,35 @@ export class AppStack extends Stack {
     api.addRoutes({
       path: '/contact',
       methods: [HttpMethod.POST],
-      integration: new LambdaProxyIntegration({
-        handler: contactFunction,
-      }),
+      integration: new HttpLambdaIntegration('postContact', contactFunction),
     });
 
-    const { getCommissionMetaFunction, postCommissionMetaFunction } =
-      setupManagementFunctions(this, lambdaFolder);
+    const {
+      getCommissionMetaFunction,
+      postCommissionMetaFunction,
+      managementUserPool,
+    } = setupManagementFunctions(this, lambdaFolder);
     api.addRoutes({
       path: '/commission-meta',
       methods: [HttpMethod.GET],
-      integration: new LambdaProxyIntegration({
-        handler: getCommissionMetaFunction,
-      }),
+      integration: new HttpLambdaIntegration(
+        'getCommissionMeta',
+        getCommissionMetaFunction
+      ),
+    });
+
+    const authorizer = new HttpUserPoolAuthorizer(
+      'managementAuthorizer',
+      managementUserPool
+    );
+    api.addRoutes({
+      path: '/commission-meta',
+      methods: [HttpMethod.POST],
+      integration: new HttpLambdaIntegration(
+        'postCommissionMeta',
+        postCommissionMetaFunction
+      ),
+      authorizer,
     });
 
     new CfnOutput(this, 'apiUrl', {
