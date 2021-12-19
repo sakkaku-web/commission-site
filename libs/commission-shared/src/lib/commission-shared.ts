@@ -4,6 +4,10 @@ export interface CommissionContact {
   message?: string;
 }
 
+export interface CommissionMeta {
+  commissionOpen: boolean;
+}
+
 export const commissionTable = 'CommissionTable';
 export const commissionTableKey = 'id';
 

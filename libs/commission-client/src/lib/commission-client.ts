@@ -1,12 +1,37 @@
-import { CommissionContact } from '@commission-site/commission-shared';
+import {
+  CommissionContact,
+  CommissionMeta,
+} from '@commission-site/commission-shared';
 
 export class CommissionClient {
-  constructor(private baseUrl: string) {}
+  constructor(private baseUrl: string, private token?: string | null) {}
 
   async sendContactMessage(contact: CommissionContact) {
     return fetch(`${this.baseUrl}/contact`, {
       method: 'POST',
       body: JSON.stringify(contact),
+    });
+  }
+
+  async getCommissionMeta(): Promise<CommissionMeta> {
+    return fetch(`${this.baseUrl}/commission-meta`).then((r) => r.json());
+  }
+
+  async postCommissionMeta(meta: CommissionMeta) {
+    return fetch(`${this.baseUrl}/commission-meta`, {
+      method: 'POST',
+      body: JSON.stringify(meta),
+      headers: this.baseHeaders(),
+    });
+  }
+
+  private baseHeaders() {
+    if (!this.token) {
+      return undefined;
+    }
+
+    return new Headers({
+      Authorization: this.token,
     });
   }
 }

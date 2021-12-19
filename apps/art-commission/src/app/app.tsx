@@ -12,7 +12,7 @@ export function App() {
       <Routes>
         <Route path="/">
           <Route index element={<LandingPage client={client} />} />
-          <Route path="admin" element={<AdminPage client={client} />} />
+          <Route path="admin" element={<AdminPage />} />
         </Route>
       </Routes>
     </div>

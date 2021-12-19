@@ -8,6 +8,7 @@ import {
   commissionMetaColumn,
   commissionTable,
   commissionTableKey,
+  CommissionMeta,
 } from '@commission-site/commission-shared';
 
 const client = new DynamoDBClient({
@@ -40,12 +41,17 @@ export const postHandler = async ({
   body,
 }: APIGatewayEvent): Promise<APIGatewayProxyResult> => {
   try {
+    const meta = JSON.parse(body) as CommissionMeta;
+    if (!meta) {
+      return { statusCode: 400, body: 'Validation failed' };
+    }
+
     await client.send(
       new PutItemCommand({
         TableName: commissionTable,
         Item: {
           [commissionTableKey]: { S: commissionMetaColumn },
-          data: { S: JSON.stringify(body) },
+          data: { S: JSON.stringify(meta) },
         },
       })
     );
