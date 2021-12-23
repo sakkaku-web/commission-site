@@ -106,7 +106,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           rows={5}
           maxLength={maxMessageLength}
         />
-        <span className="note">
+        <span className="status note">
           {message.length}/{maxMessageLength}
         </span>
       </div>
@@ -119,7 +119,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         </div>
       </div>
 
-      {statusMessage && <span className="status-message">{statusMessage}</span>}
+      {statusMessage && <span className="status">{statusMessage}</span>}
     </form>
   );
 }

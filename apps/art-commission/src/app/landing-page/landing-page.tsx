@@ -1,4 +1,5 @@
 import { CommissionClient } from '@commission-site/commission-client';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ContactForm, { ContactFormValue } from '../contact-form/contact-form';
 import './landing-page.module.scss';
@@ -9,6 +10,14 @@ export interface LandingPageProps {
 
 export function LandingPage({ client }: LandingPageProps) {
   const { t } = useTranslation();
+  const [commissionOpen, setCommissionOpen] = useState(true as boolean | null);
+
+  useEffect(() => {
+    client
+      .getCommissionMeta()
+      .then((meta) => setCommissionOpen(meta.commissionOpen))
+      .catch(() => setCommissionOpen(null));
+  });
 
   const sendContact = async (contact: ContactFormValue) => {
     client.sendContactMessage(contact);
@@ -24,6 +33,9 @@ export function LandingPage({ client }: LandingPageProps) {
       <div className="text-center">
         <h1 className="uppercase">Kumi</h1>
         <p>{t('landing.description')}</p>
+        <div className="status important">
+          {!commissionOpen && t('landing.closed')}
+        </div>
       </div>
 
       <ContactForm onSubmit={sendContact} />

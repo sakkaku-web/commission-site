@@ -20,7 +20,8 @@ h1 {
   @apply my-2;
 }
 
-input, textarea {
+input,
+textarea {
   @apply border-solid;
   @apply border;
   @apply border-gray-300;
@@ -41,19 +42,31 @@ button {
   @apply p-1;
 }
 
+.form-row.inline {
+  @apply flex-row;
+}
+
+.form-row.inline > * {
+  @apply mr-2;
+}
+
 .form {
   @apply flex;
   @apply flex-col;
 }
 
-.status-message {
-  @apply flex;
-  @apply flex-col;
-  @apply justify-center;
+.status {
   @apply p-1;
 }
 
-.note {
+.status.important {
+  @apply text-red-900;
+  @apply text-xl;
+  @apply font-bold;
+  @apply my-2;
+}
+
+.status.note {
   @apply text-gray-400;
   @apply text-sm;
 }
