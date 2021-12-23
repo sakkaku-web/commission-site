@@ -15,9 +15,10 @@ export enum ContactStatus {
 
 export interface ContactFormProps {
   onSubmit?: (value: ContactFormValue) => Promise<void>;
+  disabled?: boolean;
 }
 
-export function ContactForm({ onSubmit }: ContactFormProps) {
+export function ContactForm({ onSubmit, disabled = false }: ContactFormProps) {
   const maxLength = 100;
   const maxMessageLength = 1000;
 
@@ -66,6 +67,8 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
     }
   };
 
+  const inputDisabled = sending || disabled;
+
   // TODO: add validation
   return (
     <form className="form" onSubmit={(e) => submit(e)}>
@@ -74,7 +77,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <input
           id="contact-name"
           type="text"
-          disabled={sending}
+          disabled={inputDisabled}
           value={name}
           required
           maxLength={maxLength}
@@ -87,7 +90,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <input
           id="contact-email"
           type="text"
-          disabled={sending}
+          disabled={inputDisabled}
           value={email}
           required
           maxLength={maxLength}
@@ -100,7 +103,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <textarea
           id="contact-message"
           className="resize-none"
-          disabled={sending}
+          disabled={inputDisabled}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={5}
@@ -113,7 +116,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
 
       <div className="form-row">
         <div>
-          <button type="submit" disabled={sending}>
+          <button type="submit" disabled={inputDisabled}>
             {t('button.submit')}
           </button>
         </div>

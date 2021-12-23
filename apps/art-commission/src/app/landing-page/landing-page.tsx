@@ -38,7 +38,7 @@ export function LandingPage({ client }: LandingPageProps) {
         </div>
       </div>
 
-      <ContactForm onSubmit={sendContact} />
+      <ContactForm onSubmit={sendContact} disabled={!commissionOpen} />
     </>
   );
 }

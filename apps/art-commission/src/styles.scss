@@ -28,6 +28,14 @@ textarea {
   @apply p-1;
 }
 
+input[disabled],
+textarea[disabled],
+button[disabled] {
+  @apply bg-gray-200;
+  @apply cursor-default;
+  @apply text-gray-600;
+}
+
 button {
   @apply border-solid;
   @apply border;
