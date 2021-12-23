@@ -17,7 +17,7 @@ export class CommissionClient {
     return fetch(`${this.baseUrl}/commission-meta`).then((r) => r.json());
   }
 
-  async postCommissionMeta(meta: CommissionMeta) {
+  async postCommissionMeta(meta: CommissionMeta): Promise<Response> {
     return fetch(`${this.baseUrl}/commission-meta`, {
       method: 'POST',
       body: JSON.stringify(meta),

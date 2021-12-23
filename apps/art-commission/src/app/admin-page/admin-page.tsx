@@ -21,7 +21,7 @@ export function AdminPage(props: AdminPageProps) {
   }
 
   const [commissionOpen, setCommissionOpen] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [status, setStatus] = useState('');
 
   const client = new CommissionClient(
     environment.commisionApi,
@@ -36,11 +36,15 @@ export function AdminPage(props: AdminPageProps) {
 
   const submitForm = async (e: FormEvent) => {
     e.preventDefault();
-    setSaved(false);
-    await client.postCommissionMeta({
+    setStatus('');
+    const response = await client.postCommissionMeta({
       commissionOpen,
     });
-    setSaved(true);
+    if (response.status === 200) {
+      setStatus('Saved');
+    } else {
+      setStatus(await response.json());
+    }
   };
 
   return (
@@ -58,7 +62,7 @@ export function AdminPage(props: AdminPageProps) {
 
         <div className="form-row inline">
           <button type="submit">Save</button>
-          {saved && <div className="status">Saved</div>}
+          <div className="status">{status}</div>
         </div>
       </form>
     </div>
