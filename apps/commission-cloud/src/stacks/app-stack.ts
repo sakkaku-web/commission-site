@@ -4,6 +4,7 @@ import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations';
 import { setupContactNotification } from './contact-stack';
 import { setupManagementFunctions } from './management-stack';
 import { HttpUserPoolAuthorizer } from '@aws-cdk/aws-apigatewayv2-authorizers';
+import { Effect, PolicyStatement } from '@aws-cdk/aws-iam';
 
 export class AppStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -60,6 +61,13 @@ export class AppStack extends Stack {
       ),
       authorizer,
     });
+
+    contactFunction.addToRolePolicy(
+      new PolicyStatement({
+        actions: ['lambda:InvokeFunction'],
+        resources: [getCommissionMetaFunction.functionArn],
+      })
+    );
 
     new CfnOutput(this, 'apiUrl', { value: api.url });
     new CfnOutput(this, 'contactTopic', { value: contactTopic.topicArn });

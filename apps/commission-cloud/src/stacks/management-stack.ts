@@ -19,6 +19,7 @@ export function setupManagementFunctions(scope: Construct, libsPath: string) {
   });
 
   const getCommissionMetaFunction = new Function(scope, 'getCommissionMeta', {
+    functionName: 'GetCommissionMeta',
     runtime: Runtime.NODEJS_14_X,
     code: Code.fromAsset(join(libsPath, 'commission-meta')),
     handler: 'lambda-commission-meta.getHandler',

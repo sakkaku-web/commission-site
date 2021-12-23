@@ -20,7 +20,7 @@ export function LandingPage({ client }: LandingPageProps) {
   });
 
   const sendContact = async (contact: ContactFormValue) => {
-    client.sendContactMessage(contact);
+    await client.sendContactMessage(contact);
   };
 
   return (
