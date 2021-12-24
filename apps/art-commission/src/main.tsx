@@ -8,6 +8,7 @@ import common_de from './i18n/de/common.json';
 import common_jp from './i18n/jp/common.json';
 
 import App from './app/app';
+import { environment } from './environments/environment';
 
 i18next.init({
   interpolation: { escapeValue: false },
@@ -24,7 +25,7 @@ i18next.init({
 ReactDOM.render(
   <StrictMode>
     <I18nextProvider i18n={i18next}>
-      <BrowserRouter>
+      <BrowserRouter basename={environment.baseHref}>
         <App />
       </BrowserRouter>
     </I18nextProvider>
