@@ -99,7 +99,7 @@ export function ContactForm({ onSubmit, disabled = false }: ContactFormProps) {
       </div>
 
       <div className="form-row">
-        <label htmlFor="contact-message">{t('contact.message')}</label>
+        <label htmlFor="contact-message">{t('contact.message')} *</label>
         <textarea
           id="contact-message"
           className="resize-none"
@@ -107,6 +107,7 @@ export function ContactForm({ onSubmit, disabled = false }: ContactFormProps) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={5}
+          required
           maxLength={maxMessageLength}
         />
         <span className="status note">

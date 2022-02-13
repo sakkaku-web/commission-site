@@ -57,6 +57,7 @@ export const handler = async ({
     if (
       !contact.name ||
       !contact.email ||
+      !contact.message ||
       contact.name?.length > 100 ||
       contact.email?.length > 100 ||
       contact.message?.length > 1000
