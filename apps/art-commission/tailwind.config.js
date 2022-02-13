@@ -9,6 +9,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    height: {
+      '25v': '25vw',
+      '50v': '50vw',
+    },
   },
   variants: {
     extend: {},

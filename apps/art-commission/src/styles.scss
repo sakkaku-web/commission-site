@@ -10,8 +10,6 @@ body {
   @apply flex;
   @apply flex-col;
   @apply w-screen;
-  @apply md:w-1/2;
-  @apply mx-auto p-4;
 }
 
 h1 {
@@ -43,6 +41,16 @@ button {
   @apply bg-white;
   @apply p-1;
 }
+
+/* Containers */
+
+.row {
+  @apply p-4;
+  @apply flex-grow;
+}
+
+
+/* Form & Statues */
 
 .form-row {
   @apply flex;
