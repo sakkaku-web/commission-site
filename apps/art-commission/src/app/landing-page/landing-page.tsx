@@ -2,6 +2,7 @@ import { CommissionClient } from '@commission-site/commission-client';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SocialIcon } from 'react-social-icons';
+import ClosedStatus from '../closed-status/closed-status';
 import ContactForm, { ContactFormValue } from '../contact-form/contact-form';
 import Showcase from '../showcase/showcase';
 import './landing-page.module.scss';
@@ -13,6 +14,7 @@ export interface LandingPageProps {
 export function LandingPage({ client }: LandingPageProps) {
   const { t } = useTranslation();
   const [commissionOpen, setCommissionOpen] = useState(true as boolean | null);
+  const showClosed = !commissionOpen;
 
   useEffect(() => {
     client
@@ -46,15 +48,15 @@ export function LandingPage({ client }: LandingPageProps) {
             />
           </div>
           <p>{t('landing.description')}</p>
-          <div className="status important">
-            {!commissionOpen && t('landing.closed')}
-          </div>
+
+          <ClosedStatus show={showClosed} />
         </div>
       </div>
 
       <Showcase />
 
       <div className="row">
+        <ClosedStatus show={showClosed} />
         <ContactForm onSubmit={sendContact} disabled={!commissionOpen} />
       </div>
     </>
