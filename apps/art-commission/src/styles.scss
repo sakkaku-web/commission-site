@@ -47,6 +47,9 @@ button {
 .row {
   @apply p-4;
   @apply flex-grow;
+  @apply w-full;
+  @apply md:w-1/2;
+  @apply mx-auto;
 }
 
 
