@@ -13,6 +13,9 @@ module.exports = {
       '25v': '25vw',
       '50v': '50vw',
     },
+    maxHeight: {
+      '75': '75vh',
+    }
   },
   variants: {
     extend: {},

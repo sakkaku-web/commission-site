@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import ImageView from '../image-view/image-view';
 import './showcase.module.scss';
 
 /* eslint-disable-next-line */
@@ -17,6 +19,8 @@ const createImgUrl = (id: string, small = true) =>
   }`;
 
 export function Showcase(props: ShowcaseProps) {
+  const [imageToShow, setImageToShow] = useState('');
+
   const showcase = images.map((i) => {
     const url = createImgUrl(i);
     return (
@@ -26,11 +30,23 @@ export function Showcase(props: ShowcaseProps) {
           backgroundImage: `url(${url})`,
           backgroundPosition: 'center 25%',
         }}
+        onClick={() => setImageToShow(i)}
       ></div>
     );
   });
 
-  return <div className="flex flex-wrap">{showcase}</div>;
+  return (
+    <>
+      {imageToShow && (
+        <ImageView
+          image={createImgUrl(imageToShow, false)}
+          name={imageToShow}
+          onClose={() => setImageToShow('')}
+        />
+      )}
+      <div className="flex flex-wrap">{showcase}</div>
+    </>
+  );
 }
 
 export default Showcase;
