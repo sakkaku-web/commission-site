@@ -27,6 +27,13 @@ export function LandingPage({ client }: LandingPageProps) {
     await client.sendContactMessage(contact);
   };
 
+  const socialMedia = [
+    'https://twitter.com/kumi_yada',
+    'https://www.pixiv.net/users/58480310',
+    'https://www.instagram.com/kumi_yada93',
+    'https://www.youtube.com/channel/UCGhrMdAkUHi_8nc7qz_nE5Q',
+  ];
+
   return (
     <>
       <div className="row">
@@ -38,14 +45,12 @@ export function LandingPage({ client }: LandingPageProps) {
         <div className="text-center">
           <h1 className="uppercase">Kumi</h1>
           <div className="flex flex-row justify-center p-2 gap-2">
-            <SocialIcon
-              style={{ width: '2.5em', height: '2.5em' }}
-              url="https://twitter.com/kumi_yada"
-            />
-            <SocialIcon
-              style={{ width: '2.5em', height: '2.5em' }}
-              url="https://www.youtube.com/channel/UCGhrMdAkUHi_8nc7qz_nE5Q"
-            />
+            {socialMedia.map((link) => (
+              <SocialIcon
+                style={{ width: ' 2.5em', height: '2.5em' }}
+                url={link}
+              />
+            ))}
           </div>
           <p>{t('landing.description')}</p>
 
