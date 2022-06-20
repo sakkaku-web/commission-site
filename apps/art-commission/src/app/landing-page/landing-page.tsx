@@ -32,6 +32,7 @@ export function LandingPage({ client }: LandingPageProps) {
     'https://www.pixiv.net/users/58480310',
     'https://www.instagram.com/kumi_yada93',
     'https://www.youtube.com/channel/UCGhrMdAkUHi_8nc7qz_nE5Q',
+    'https://kumi.fanbox.cc/',
   ];
 
   return (
